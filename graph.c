@@ -6,15 +6,13 @@
 
 #include "fifo.h"
 
-#ifdef ADJ_MATRIX
-    #include "adjacency_matrix.h"
-#elif EDGE_LIST
-    #include "edge_list.h"
+#define ADJACENCY_MATRIX
+#ifdef ADJACENCY_MATRIX
+#include "adjacency_matrix.h"
 #else
-    #error "Compile with -DADJ_MATRIX or -DEDGE_LIST"
-#endif
-
-int ns[] = { 100 /* TODO: set this to instances' sizes */ };
+#error "Compile with -DADJ_MATRIX or -DEDGE_LIST"
+#endif // EDGE_LIST
+int ns[] = { 100, 200, 500, 750, 1000, 1500, 2000, 2500, 3000, 3500};
 double bs[] = { 0.125, 0.375, 0.5, 0.625, 0.875 };
 
 // fill graph with edges according to desired density
