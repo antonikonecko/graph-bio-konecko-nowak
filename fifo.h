@@ -1,7 +1,7 @@
 #ifndef _FIFO_H_
 #define _FIFO_H_
 
-#include <error.h>
+#include "error.h"
 #include <stdbool.h>
 #include <stdlib.h>
 
