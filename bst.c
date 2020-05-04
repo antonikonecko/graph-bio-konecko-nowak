@@ -76,7 +76,7 @@ void tree_visit(struct node *pnode) {
 void tree_preorder(struct node *pnode) {
    if (pnode==NULL)
     return;
-    printf("%d", pnode->key);
+   tree_visit(pnode);
     tree_preorder(pnode->left);
     tree_preorder(pnode->right);
 
@@ -87,7 +87,7 @@ void tree_inorder(struct node *pnode) {
     if(pnode==NULL)
         return;
         tree_inorder(pnode->left);
-        printf("%d", pnode->key);
+        tree_visit(pnode);
         tree_inorder(pnode->right);
 
 }
@@ -96,7 +96,7 @@ void tree_postorder(struct node *pnode) {
    if(pnode==NULL)
     tree_postorder(pnode->left);
     tree_postorder(pnode->right);
-    printf("%d", pnode->key);
+    tree_visit(pnode);
    }
 
 int main(int argc, char **argv) {
