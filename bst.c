@@ -1,12 +1,12 @@
 #include <assert.h>
-#include "error.h"
+
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <signal.h>
 #include <time.h>
-
+#include "error.h"
 // each tree node contains an integer key and pointers to left and right children nodes
 struct node {
     int key;
@@ -74,16 +74,30 @@ void tree_visit(struct node *pnode) {
 }
 
 void tree_preorder(struct node *pnode) {
-    // TODO: implement this
+   if (pnode==NULL)
+    return;
+    printf("%d", pnode->key);
+    tree_preorder(pnode->left);
+    tree_preorder(pnode->right);
+
+
 }
 
 void tree_inorder(struct node *pnode) {
-    // TODO: implement this
+    if(pnode==NULL)
+        return;
+        tree_inorder(pnode->left);
+        printf("%d", pnode->key);
+        tree_inorder(pnode->right);
+
 }
 
 void tree_postorder(struct node *pnode) {
-    // TODO: implement this
-}
+   if(pnode==NULL)
+    tree_postorder(pnode->left);
+    tree_postorder(pnode->right);
+    printf("%d", pnode->key);
+   }
 
 int main(int argc, char **argv) {
     for (int i = 1; i < argc; i++) {
